@@ -97,6 +97,7 @@ nav {
     height: 3px;
     background-color: white;
     margin: 5px 0;
+    position: relative;
     transition: all 0.3s ease;
 }
 
@@ -367,6 +368,8 @@ footer {
     .hamburger.active::before {
         content: "";
         position: absolute;
+        top: 0;
+        left: 0;
         width: 25px;
         height: 3px;
         background-color: white;
@@ -377,6 +380,8 @@ footer {
     .hamburger.active::after {
         content: "";
         position: absolute;
+        top: 0;
+        left: 0;
         width: 25px;
         height: 3px;
         background-color: white;
