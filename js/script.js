@@ -4,7 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('.nav-menu');
     const hamburger = document.querySelector('.hamburger');
 
+    // Debug: Log if elements are found
+    console.log('Nav Toggle:', navToggle);
+    console.log('Nav Menu:', navMenu);
+    console.log('Hamburger:', hamburger);
+
+    if (!navToggle || !navMenu || !hamburger) {
+        console.error('Mobile navigation elements not found!');
+        return;
+    }
+
     navToggle.addEventListener('click', function() {
+        console.log('Nav toggle clicked');
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
@@ -13,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
+            console.log('Nav link clicked');
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
         });
@@ -24,74 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
         }
-    });
-
-    // Add smooth scroll to anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Add animation classes to elements as they enter viewport
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
-        });
-    }, observerOptions);
-
-    // Observe sections for animation
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
-
-    // Form validation for contact form (if exists on contact page)
-    const contactForms = document.querySelectorAll('.contact-form');
-    contactForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Simple validation
-            let isValid = true;
-            const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
-
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#ef4444';
-                } else {
-                    input.style.borderColor = '#10b981';
-                }
-            });
-
-            if (isValid) {
-                // Show success message
-                const formMessage = document.createElement('div');
-                formMessage.className = 'form-message success';
-                formMessage.textContent = 'Thank you! Your message has been sent.';
-                form.appendChild(formMessage);
-
-                // Reset form
-                form.reset();
-
-                // Remove success message after 5 seconds
-                setTimeout(() => {
-                    formMessage.remove();
-                }, 5000);
-            }
-        });
     });
 });
 
