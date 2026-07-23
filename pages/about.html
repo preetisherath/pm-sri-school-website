@@ -6,6 +6,45 @@
     <title>About Us - PM SHRI Government Senior Secondary School, Mandal, Bhilwara</title>
     <meta name="description" content="Learn about PM SHRI Government Senior Secondary School, Mandal, Bhilwara's mission, vision, and history in Mandal, Bhilwara, Rajasthan">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Additional styles for about page enhancements */
+        .about-intro { text-align: center; margin-bottom: 2rem; }
+        .about-intro p { font-size: 1.1rem; color: #555; max-width: 800px; margin: 0 auto; }
+        .vision-mission { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+        .vision-mission > div { flex: 1; min-width: 280px; background: #f8f9fa; padding: 2rem; border-radius: 10px; }
+        .vision-mission h2 { color: #2c3e50; margin-top: 0; }
+        .history-timeline { position: relative; max-width: 800px; margin: 0 auto 3rem; padding: 2rem 0; }
+        .history-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: #3498db; transform: translateX(-50%); }
+        .history-timeline .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 20px; }
+        .history-timeline .timeline-item::before { content: ''; position: absolute; left: 50%; top: 0; width: 16px; height: 16px; background: #3498db; border-radius: 50%; transform: translateX(-50%); }
+        .history-timeline .timeline-item .timeline-content { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-left: 20px; }
+        .history-timeline .timeline-item h3 { margin-top: 0; color: #2c3e50; }
+        .values-section { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 3rem; }
+        .value-card { text-align: center; padding: 1.5rem; background: #f8f9fa; border-radius: 10px; flex: 1; min-width: 180px; }
+        .value-card i { font-size: 2.5rem; color: #3498db; margin-bottom: 1rem; }
+        .value-card h3 { margin: 1rem 0 0.5rem; color: #2c3e50; }
+        .stats-section { background: #ecf0f1; padding: 3rem 0; text-align: center; }
+        .stats-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; max-width: 1000px; margin: 0 auto; }
+        .stat-item { flex: 1; min-width: 150px; }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: #2c3e50; display: block; }
+        .stat-label { font-size: 1.1rem; color: #34495e; }
+        .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .achievement-card { background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s; }
+        .achievement-card:hover { transform: translateY(-5px); }
+        .faculty-infrastructure { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+        .faculty-infrastructure > div { flex: 1; min-width: 280px; }
+        .testimonials { background: #fff; padding: 3rem 0; }
+        .testimonial-slider { max-width: 800px; margin: 0 auto; text-align: center; }
+        .testimonial-slider blockquote { font-style: italic; color: #555; font-size: 1.1rem; margin-bottom: 1rem; }
+        .testimonial-slider .author { font-weight: bold; color: #2c3e50; }
+        @media (max-width: 768px) {
+            .vision-mission, .history-timeline, .faculty-infrastructure { flex-direction: column; }
+            .history-timeline::before { left: 20px; }
+            .history-timeline .timeline-item::before { left: 20px; }
+            .history-timeline .timeline-item { padding-left: 50px; }
+            .history-timeline .timeline-item .timeline-content { margin-left: 50px; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -41,32 +80,104 @@
             </div>
         </section>
 
-        <section class="about-content">
+        <section class="about-intro">
             <div class="container">
-                <div class="about-text">
+                <p>PM SHRI Government Senior Secondary School, Mandal, Bhilwara stands as a premier institution dedicated to nurturing young minds, fostering intellectual curiosity, and shaping future leaders through a balanced approach to academics, sports, arts, and community service.</p>
+            </div>
+        </section>
+
+        <section class="vision-mission">
+            <div class="container">
+                <div>
                     <h2>Our Vision</h2>
                     <p>To empower every student with knowledge, skills, and values to become responsible global citizens and leaders of tomorrow.</p>
-
+                </div>
+                <div>
                     <h2>Our Mission</h2>
                     <p>To provide quality education that fosters intellectual growth, creativity, and character development in a nurturing and inclusive environment.</p>
-
-                    <h2>Our History</h2>
-                    <p>Established with the vision of providing exceptional education to the youth of Mandal and surrounding areas, PM SHRI Government Senior Secondary School, Mandal, Bhilwara has been a beacon of academic excellence since its inception.</p>
-
-                    <h2>Core Values</h2>
-                    <ul class="values-list">
-                        <li><strong>Excellence:</strong> Striving for the highest standards in all endeavors</li>
-                        <li><strong>Integrity:</strong> Upholding honesty, ethics, and moral courage</li>
-                        <li><strong>Respect:</strong> Valuing diversity and treating everyone with dignity</li>
-                        <li><strong>Innovation:</strong> Embracing creativity and progressive thinking</li>
-                        <li><strong>Service:</strong> Committing to contribute positively to society</li>
-                    </ul>
                 </div>
+            </div>
+        </section>
 
-                <div class="about-image">
-                    <!-- Placeholder for school image -->
-                    <div class="image-placeholder">
-                        <img src="../assets/school-image.jpg" alt="PM SHRI Government Senior Secondary School, Mandal, Bhilwara Campus">
+        <section class="history-timeline">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Our Journey Through Time</h2>
+                <div class="history-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Founding Years</h3>
+                            <p>Established in [Year] with the vision of providing exceptional education to the youth of Mandal and surrounding areas, our school began as a modest institution with a handful of dedicated teachers and enthusiastic students.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Growth & Development</h3>
+                            <p>Throughout the [decades], we expanded our infrastructure, introduced modern teaching methodologies, and achieved recognition for academic excellence at district and state levels.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Modern Era</h3>
+                            <p>Today, we stand as a PM SHRI school equipped with smart classrooms, well-equipped laboratories, extensive sports facilities, and a vibrant learning environment that prepares students for the challenges of the 21st century.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Our Core Values</h2>
+                <div class="values-section">
+                    <div class="value-card">
+                        <!-- Using Unicode icons as placeholders; replace with actual icon library if available -->
+                        <div style="font-size: 2.5rem; color: #3498db; margin-bottom: 1rem;">★</div>
+                        <h3>Excellence</h3>
+                        <p>Striving for the highest standards in all endeavors</p>
+                    </div>
+                    <div class="value-card">
+                        <div style="font-size: 2.5rem; color: #3498db; margin-bottom: 1rem;">♥</div>
+                        <h3>Integrity</h3>
+                        <p>Upholding honesty, ethics, and moral courage</p>
+                    </div>
+                    <div class="value-card">
+                        <div style="font-size: 2.5rem; color: #3498db; margin-bottom: 1rem;">♤</div>
+                        <h3>Respect</h3>
+                        <p>Valuing diversity and treating everyone with dignity</p>
+                    </div>
+                    <div class="value-card">
+                        <div style="font-size: 2.5rem; color: #3498db; margin-bottom: 1rem;">⚡</div>
+                        <h3>Innovation</h3>
+                        <p>Embracing creativity and progressive thinking</p>
+                    </div>
+                    <div class="value-card">
+                        <div style="font-size: 2.5rem; color: #3498db; margin-bottom: 1rem;">✈</div>
+                        <h3>Service</h3>
+                        <p>Committing to contribute positively to society</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom 2rem;">Our Impact in Numbers</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Students Educated</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Dedicated Faculty</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Pass Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Sports & Clubs</span>
                     </div>
                 </div>
             </div>
@@ -74,23 +185,53 @@
 
         <section class="achievements">
             <div class="container">
-                <h2>Our Achievements</h2>
+                <h2 style="text-align: center; margin-bottom: 2rem;">Our Achievements</h2>
                 <div class="achievements-grid">
                     <div class="achievement-card">
                         <h3>Academic Excellence</h3>
-                        <p>Consistently producing top performers in board examinations</p>
+                        <p>Consistently producing top performers in board examinations with numerous students securing merit positions.</p>
                     </div>
                     <div class="achievement-card">
                         <h3>Sports Championships</h3>
-                        <p>Winning numerous district and state level sports competitions</p>
+                        <p>Winning numerous district and state level sports competitions in athletics, football, cricket, and kho-kho.</p>
                     </div>
                     <div class="achievement-card">
                         <h3>Cultural Triumphs</h3>
-                        <p>Excelling in arts, music, and cultural competitions</p>
+                        <p>Excelling in arts, music, dance, and cultural competitions at regional and national levels.</p>
                     </div>
                     <div class="achievement-card">
                         <h3>Community Service</h3>
-                        <p>Actively participating in social welfare initiatives</l/div>
+                        <p>Actively participating in social welfare initiatives, environmental campaigns, and rural outreach programs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faculty-infrastructure">
+            <div class="container">
+                <div>
+                    <h2>Our Distinguished Faculty</h2>
+                    <p>Our team of highly qualified and experienced educators brings passion and expertise to every classroom. With regular professional development programs and a student-centric approach, our teachers mentor learners to achieve their full potential.</p>
+                </div>
+                <div>
+                    <h2>State-of-the-Art Infrastructure</h2>
+                    <p>Our campus features smart classrooms, modern science and computer laboratories, a well-stocked library, extensive playgrounds, and dedicated spaces for arts and music—all designed to create an optimal learning environment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">What Our Community Says</h2>
+                <div class="testimonial-slider">
+                    <blockquote>
+                        "The school has transformed my child's confidence and academic performance. The teachers truly care about each student's growth."
+                    </blockquote>
+                    <p class="author">- Parent of Class 10 Student</p>
+                    <blockquote>
+                        "Being part of this institution has given me opportunities to excel in both academics and sports. I'm proud to be a student here."
+                    </blockquote>
+                    <p class="author">- Senior Student Representative</p>
                 </div>
             </div>
         </section>
@@ -124,9 +265,9 @@
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=61558420693080&mibextid=wwXIfr" aria-label="Facebook"><span>📘</span></a>
-                        <a href="https://x.com/PMSHRIMANDAL?t=rzGpncQQVpx3LMw0sSNQ-Q&s=09" aria-label="Twitter"><span>🐦</span></a>
-                        <a href="https://www.instagram.com/pmshrimandal?igsh=Ymk3cjlqdHlhamY1&utm_source=qr" aria-label="Instagram"><span>📷</span></a>
+                        <a href="https://www.facebook.com/profile.php?id=61558420693080&mibextid=wwXIfr" aria-label="Facebook"><img src="/facebook.png" alt="Facebook" /></a>
+                        <a href="https://x.com/PMSHRIMANDAL?t=rzGpncQQVpx3LMw0sSNQ-Q&s=09" aria-label="Twitter"><img src="/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.instagram.com/pmshrimandal?igsh=Ymk3cjlqdHlhamY1&utm_source=qr" aria-label="Instagram"><img src="/instagram.png" alt="Instagram" /></a>
                     </div>
                 </div>
             </div>

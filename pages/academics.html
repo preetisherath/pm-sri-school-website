@@ -6,6 +6,58 @@
     <title>Academics - PM SHRI Government Senior Secondary School, Mandal, Bhilwara</title>
     <meta name="description" content="Explore the academic programs, streams, and curriculum offered at PM SHRI Government Senior Secondary School, Mandal, Bhilwara in Mandal, Bhilwara, Rajasthan">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Additional styles for academics page */
+        .academic-intro { text-align: center; margin-bottom: 2rem; }
+        .academic-intro p { font-size: 1.1rem; color: #555; max-width: 800px; margin: 0 auto; }
+        .philosophy { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+        .philosophy > div { flex: 1; min-width: 280px; background: #f8f9fa; padding: 2rem; border-radius: 10px; }
+        .philosophy h2 { color: #2c3e50; margin-top: 0; }
+        .streams-section { background: #ecf0f1; padding: 3rem 0; }
+        .streams-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .stream-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+        .stream-card:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .stream-card h3 { background: #3498db; color: white; margin: 0; padding: 1rem; text-align: center; font-size: 1.4rem; }
+        .stream-card .stream-body { padding: 1.5rem; }
+        .stream-card .stream-body p { margin: 0.8rem 0; line-height: 1.5; }
+        .stream-card .stream-body strong { color: #2c3e50; }
+        .curriculum-section { margin: 3rem 0; }
+        .curriculum-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; background: #f8f9fa; padding: 1rem; border-radius: 10px; }
+        .tab-btn { flex: 1; min-width: 120px; padding: 0.8rem 1rem; border: none; background: #e0e0e0; cursor: pointer; border-radius: 6px; font-weight: 600; transition: all 0.3s; }
+        .tab-btn.active, .tab-btn:hover { background: #3498db; color: white; }
+        .tab-content { display: none; animation: fadeIn 0.4s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .curriculum-content { background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .activities-grid, .faculty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .activity, .faculty-card { background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; }
+        .activity:hover, .faculty-card:hover { transform: translateY(-5px); }
+        .activity h4, .faculty-card h3 { margin-top: 0; color: #2c3e50; }
+        .faculty-img { width: 80px; height: 80px; margin: 0 auto 1rem; background: #ecf0f1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #2c3e50; font-size: 1.8rem; }
+        .achievements-section { background: #fff; padding: 3rem 0; }
+        .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .achievement-card { background: #f8f9fa; border-left: 4px solid #3498db; padding: 1.5rem; border-radius: 0 8px 8px 0; transition: background 0.3s; }
+        .achievement-card:hover { background: #e9f4ff; }
+        .stats-section { background: linear-gradient(135deg, #3498db, #2c3e50); color: white; text-align: center; padding: 3rem 0; }
+        .stats-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; max-width: 1000px; margin: 0 auto; }
+        .stat-item { flex: 1; min-width: 150px; }
+        .stat-number { font-size: 2.8rem; font-weight: bold; display: block; }
+        .stat-label { font-size: 1.2rem; opacity: 0.9; }
+        .infrastructure-section { margin: 3rem 0; }
+        .infra-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .infra-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+        .infra-card h3 { background: #2c3e50; color: white; margin: 0; padding: 1rem; text-align: center; }
+        .infra-card .infra-body { padding: 1.5rem; }
+        .outcomes-section { background: #f8f9fa; padding: 3rem 0; text-align: center; }
+        .outcomes-section h2 { margin-top: 0; }
+        .outcome-item { display: inline-block; background: #fff; margin: 1rem; padding: 1.5rem 2rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); min-width: 200px; text-align: left; }
+        .outcome-item h3 { color: #2c3e50; margin-top: 0; }
+        .outcome-item p { margin: 0.5rem 0 0; }
+        @media (max-width: 768px) {
+            .philosophy, .stats-container, .infra-grid { flex-direction: column; }
+            .tab-btn { min-width: 100px; padding: 0.6rem 0.8rem; font-size: 0.9rem; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,8 +65,7 @@
             <div class="logo">
                 <img src="../assets/logo.png" alt="PM SHRI Government Senior Secondary School, Mandal, Bhilwara Logo">
                 <h1>PM SHRI Government Senior Secondary School, Mandal, Bhilwara</h1>
-            </div
-</div>
+            </div>
             <nav>
                 <button class="nav-toggle" aria-label="Toggle navigation">
                     <span class="hamburger"></span>
@@ -36,159 +87,295 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Academic Programs</h1>
+                <h1>Academic Excellence</h1>
                 <p>Explore our comprehensive curriculum designed for holistic development</p>
             </div>
         </section>
 
-        <section class="academics-overview">
+        <section class="academic-intro">
             <div class="container">
-                <h2>Our Academic Approach</h2>
-                <p>At PM SHRI Government Senior Secondary School, Mandal, Bhilwara, we follow a comprehensive curriculum that balances academic excellence with practical learning, preparing students for higher education and future careers.</p>
+                <p>At PM SHRI Government Senior Secondary School, Mandal, Bhilwara, we believe education is the foundation for building bright futures. Our academic programs blend rigorous scholastic standards with innovative teaching methodologies, ensuring every student develops the knowledge, skills, and character needed to excel in higher education and beyond.</p>
+            </div>
+        </section>
 
-                <div class="academic-highlights">
-                    <div class="highlight">
-                        <h3>Student-Centered Learning</h3>
-                        <p>Interactive teaching methods that engage students actively in the learning process</p>
-                    </div>
-                    <div class="highlight">
-                        <h3>Continuous Assessment</h3>
-                        <p>Regular evaluations to track progress and provide timely feedback</p>
-                    </div>
-                    <div class="highlight">
-                        <h3>Technology Integration</h3>
-                        <p>Modern tools and resources to enhance learning experiences</p>
-                    </div>
-                    <div class="highlight">
-                        <h3>Life Skills Development</h3>
-                        <p>Programs focused on critical thinking, communication, and problem-solving</p>
-                    </div>
+        <section class="philosophy">
+            <div class="container">
+                <div>
+                    <h2>Our Academic Vision</h2>
+                    <p>To foster intellectual curiosity, critical thinking, and a lifelong love for learning in every student through student-centered, technology-enhanced education.</p>
+                </div>
+                <div>
+                    <h2>Our Academic Mission</h2>
+                    <p>To provide a nurturing and challenging environment where students achieve academic excellence while developing essential life skills, creativity, and social responsibility.</p>
                 </div>
             </div>
         </section>
 
-        <section class="streams">
+        <section class="streams-section">
             <div class="container">
-                <h2>Streams Offered</h2>
-                <p>We offer three main streams for students to choose based on their interests and career aspirations:</p>
-
+                <h2 style="text-align: center; margin-bottom: 2rem;">Streams Offered</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #555;">We offer three main streams for students to choose based on their interests and career aspirations:</p>
                 <div class="streams-grid">
                     <div class="stream-card science">
                         <h3>Science Stream</h3>
-                        <p><strong>Subjects:</strong> Physics, Chemistry, Biology/Mathematics, English, Hindi/Sanskrit</p>
-                        <p><strong>Ideal For:</strong> Students aspiring for careers in Medicine, Engineering, Research, and Technology</p>
-                        <p><strong>Career Paths:</strong> Doctor, Engineer, Scientist, Pharmacist, Biotechnologist</p>
+                        <div class="stream-body">
+                            <p><strong>Subjects:</strong> Physics, Chemistry, Biology/Mathematics, English, Hindi/Sanskrit</p>
+                            <p><strong>Ideal For:</strong> Students aspiring for careers in Medicine, Engineering, Research, Engineering, Research, and Technology</p>
+                            <p><strong>Career Paths:</strong> Doctor, Engineer, Scientist, Pharmacist, Biotechnologist, Data Analyst</p>
+                        </div>
                     </div>
                     <div class="stream-card commerce">
                         <h3>Commerce Stream</h3>
-                        <p><strong>Subjects:</strong> Accountancy, Business Studies, Economics, Mathematics, English, Hindi/Sanskrit</p>
-                        <p><strong>Ideal For:</strong> Students interested in Business, Finance, Economics, and Management</p>
-                        <p><strong>Career Paths:</strong> Chartered Accountant, Business Analyst, Financial Advisor, Entrepreneur, Banker</p>
+                        <div class="stream-body">
+                            <p><strong>Subjects:</strong> Accountancy, Business Studies, Economics, Mathematics, English, Hindi/Sanskrit</p>
+                            <p><strong>Ideal For:</strong> Students interested in Business, Finance, Economics, and Management</p>
+                            <p><strong>Career Paths:</strong> Chartered Accountant, Business Analyst, Financial Advisor, Entrepreneur, Banker, Marketing Manager</p>
+                        </div>
                     </div>
                     <div class="stream-card arts">
                         <h3>Arts/Humanities Stream</h3>
-                        <p><strong>Subjects:</strong> History, Geography, Political Science, Sociology, Psychology, Economics, English, Hindi/Sanskrit</p>
-                        <p><strong>Ideal For:</strong> Students passionate about Social Sciences, Languages, Literature, and Humanities</p>
-                        <p><strong>Career Paths:</strong> Lawyer, Journalist, Teacher, Psychologist, Social Worker, Civil Services</p>
+                        <div class="stream-body">
+                            <p><strong>Subjects:</strong> History, Geography, Political Science, Sociology, Psychology, Economics, English, Hindi/Sanskrit</p>
+                            <p><strong>Ideal For:</strong> Students passionate about Social Sciences, Languages, Literature, and Humanities</p>
+                            <p><strong>Career Paths:</strong> Lawyer, Journalist, Teacher, Psychologist, Social Worker, Civil Services, Content Creator</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="curriculum">
+        <section class="curriculum-section">
             <div class="container">
-                <h2>Curriculum Highlights</h2>
+                <h2 style="text-align: center; margin-bottom: 2rem;">Curriculum Highlights</h2>
                 <div class="curriculum-tabs">
                     <button class="tab-btn active" data-tab="syllabus">Syllabus</button>
                     <button class="tab-btn" data-tab="activities">Co-curricular Activities</button>
                     <button class="tab-btn" data-tab="assessment">Assessment & Evaluation</button>
+                    <button class="tab-btn" data-tab="teaching">Teaching Methodology</button>
                 </div>
 
                 <div class="tab-content active" id="syllabus-content">
-                    <h3>Well-Structured Syllabus</h3>
-                    <p>Our curriculum follows the prescribed board guidelines while incorporating modern pedagogical approaches:</p>
-                    <ul>
-                        <li><strong>Conceptual Understanding:</strong> Focus on grasping fundamentals rather than rote learning</li>
-                        <li><strong>Practical Applications:</strong> Laboratory work, projects, and field visits</li>
-                        <li><strong>Interdisciplinary Learning:</strong> Connections between subjects for holistic understanding</li>
-                        <li><strong>Skill Development:</strong> Emphasis on analytical, communication, and interpersonal skills</li>
-                    </ul>
+                    <div class="curriculum-content">
+                        <h3>Well-Structured Syllabus</h3>
+                        <p>Our curriculum follows the prescribed board guidelines while incorporating modern pedagogical approaches:</p>
+                        <ul>
+                            <li><strong>Conceptual Understanding:</strong> Focus on grasping fundamentals rather than rote learning</li>
+                            <li><strong>Practical Applications:</strong> Laboratory work, projects, and field visits</li>
+                            <li><strong>Interdisciplinary Learning:</strong> Connections between subjects for holistic understanding</li>
+                            <li><strong>Skill Development:</strong> Emphasis on analytical, communication, and interpersonal skills</li>
+                            <li><strong>Value Education:</strong> Integration of ethics, environmental awareness, and civic responsibility</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="tab-content" id="activities-content">
-                    <h3>Co-curricular Activities</h3>
-                    <p>We believe in nurturing talents beyond academics through various clubs and activities:</p>
-                    <div class="activities-grid">
-                        <div class="activity">
-                            <h4>Sports Club</h4>
-                            <p>Cricket, Football, Volleyball, Athletics, Yoga</p>
-                        </div>
-                        <div class="activity">
-                            <h4>Arts & Culture</h4>
-                            <p>Music, Dance, Drama, Painting, Debate</p>
-                        </div>
-                        <div class="activity">
-                            <h4>Science & Technology</h4>
-                            <p>Robotics Club, Science Expo, Computer Coding</p>
-                        </div>
-                        <div class="activity">
-                            <h4>Literary Club</h4>
-                            <p>Creative Writing, Poetry Recitation, Quiz Competitions</p>
+                    <div class="curriculum-content">
+                        <h3>Co-curricular Activities</h3>
+                        <p>We believe in nurturing talents beyond academics through various clubs and activities:</p>
+                        <div class="activities-grid">
+                            <div class="activity">
+                                <h4>Sports & Fitness</h4>
+                                <p>Cricket, Football, Volleyball, Athletics, Yoga, Taekwondo</p>
+                            </div>
+                            <div class="activity">
+                                <h4>Arts & Culture</h4>
+                                <p>Music, Dance, Drama, Painting, Debate, Poetry</p>
+                            </div>
+                            <div class="activity">
+                                <h4>Science & Technology</h4>
+                                <p>Robotics Club, Science Expo, Computer Coding, Astronomy Club</p>
+                            </div>
+                            <div class="activity">
+                                <h4>Literary & Language</h4>
+                                <p>Creative Writing, Quiz Competitions, Elocution, Book Club</p>
+                            </div>
+                            <div class="activity">
+                                <h4>Community Service</h4>
+                                <p>Environmental Initiatives, Rural Outreach, Health Camps, Peer Tutoring</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="tab-content" id="assessment-content">
-                    <h3>Assessment & Evaluation</h3>
-                    <p>Our evaluation system is designed to provide comprehensive feedback on student progress:</p>
-                    <ul>
-                        <li><strong>Formative Assessments:</strong> Regular quizzes, class tests, and assignments</li>
-                        <li><strong>Summative Assessments:</strong> Terminal exams and annual examinations</li>
-                        <li><strong>Practical Exams:</strong> Laboratory work and project evaluations</li>
-                        <li><strong>Internal Assessment:</strong> Based on participation, projects, and consistent performance</li>
-                        <li><strong>Parent-Teacher Meetings:</strong> Regular updates on student progress</li>
-                    </ul>
+                    <div class="curriculum-content">
+                        <h3>Assessment & Evaluation</h3>
+                        <p>Our evaluation system is designed to provide comprehensive feedback on student progress:</p>
+                        <ul>
+                            <li><strong>Formative Assessments:</strong> Regular quizzes, class tests, assignments, and project work</li>
+                            <li><strong>Summative Assessments:</strong> Terminal exams and annual examinations</li>
+                            <li><strong>Practical Exams:</strong> Laboratory work and project evaluations</li>
+                            <li><strong>Continuous Assessment:</strong> Based on participation, presentations, and consistent performance</li>
+                            <li><strong>Parent-Teacher Collaboration:</strong> Regular updates on student progress through meetings and reports</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="teaching-content">
+                    <div class="curriculum-content">
+                        <h3>Teaching Methodology</h3>
+                        <p>Our experienced faculty employs diverse teaching strategies to cater to different learning styles:</p>
+                        <ul>
+                            <li><strong>Interactive Lectures:</strong> Use of multimedia, discussions, and real-world examples</li>
+                            <li><strong>Project-Based Learning:</strong> Hands-on projects that encourage problem-solving and teamwork</li>
+                            <li><strong>Flipped Classroom:</strong> Pre-class materials followed by in-depth classroom activities</li>
+                            <li><strong>Technology Integration:</strong> Smart classrooms, educational apps, and online resources</li>
+                            <li><strong>Differentiated Instruction:</strong> Tailored approaches to meet individual student needs</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="faculty">
+        <section class="faculty-section">
             <div class="container">
-                <h2>Our Esteemed Faculty</h2>
-                <p>Our dedicated team of educators brings expertise, passion, and commitment to student success:</p>
+                <h2 style="text-align: center; margin-bottom: 2rem;">Our Esteemed Faculty</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #555;">Our dedicated team of educators brings expertise, passion, and commitment to student success:</p>
                 <div class="faculty-grid">
                     <div class="faculty-card">
-                        <div class="faculty-img">
-                            <div class="initials">SM</div>
-                        </div>
+                        <div class="faculty-img">SM</div>
                         <h3>Dr. Sunita Mehta</h3>
                         <p>Head of Science Department</p>
                         <p>Ph.D. in Chemistry, 15+ years experience</p>
                     </div>
                     <div class="faculty-card">
-                        <div class="faculty-img">
-                            <div class="initials">RK</div>
-                        </div>
+                        <div class="faculty-img">RK</div>
                         <h3>Mr. Rajesh Kumar</h3>
                         <p>Head of Commerce Department</p>
                         <p>M.Com, CA Intermediate, 12+ years experience</p>
                     </div>
                     <div class="faculty-card">
-                        <div class="faculty-img">
-                            <div class="initials">AP</div>
-                        </div>
+                        <div class="faculty-img">AP</div>
                         <h3>Ms. Anita Patel</h3>
                         <p>Head of Arts Department</p>
                         <p>M.A. in History, B.Ed, 10+ years experience</p>
                     </div>
                     <div class="faculty-card">
-                        <div class="faculty-img">
-                            <div class="initials">VS</div>
-                        </div>
+                        <div class="faculty-img">VS</div>
                         <h3>Mr. Vikram Sharma</h3>
                         <p>Physical Education Director</p>
                         <p>M.P.Ed, National Level Coach</p>
                     </div>
+                    <div class="faculty-card">
+                        <div class="faculty-img">PS</div>
+                        <h3>Ms. Priya Singh</h3>
+                        <p>Mathematics Specialist</p>
+                        <p>M.Sc. Mathematics, B.Ed, 8+ years experience</p>
+                    </div>
+                    <div class="faculty-card">
+                        <div class="faculty-img">AD</div>
+                        <h3>Mr. Arjun Desai</h3>
+                        <p>English & Literature</p>
+                        <p>M.A. English, B.Ed, 7+ years experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="infrastructure-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Academic Infrastructure</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #555;">Our state-of-the-art facilities support effective learning and holistic development:</p>
+                <div class="infra-grid">
+                    <div class="infra-card">
+                        <h3>Science Laboratories</h3>
+                        <div class="infra-body">
+                            <p>Well-equipped Physics, Chemistry, and Biology labs with modern apparatus for hands-on experiments.</p>
+                            <p>Safety equipment and individual workstations ensure a conducive learning environment.</p>
+                        </div>
+                    </div>
+                    <div class="infra-card">
+                        <h3>Computer & IT Center</h3>
+                        <div class="infra-body">
+                            <p>Modern computer lab with latest hardware and software for coding, design, and digital literacy.</p>
+                            <p>High-speed internet access and trained instructors guide students in technological skills.</p>
+                        </div>
+                    </div>
+                    <div class="infra-card">
+                        <h3>Library & Resource Center</h3>
+                        <div class="infra-body">
+                            <p>Extensive collection of books, journals, and digital resources across all subjects.</p>
+                            <p>Quiet study areas and reading spaces encourage research and self-directed learning.</p>
+                        </div>
+                    </div>
+                    <div class="infra-card">
+                        <h3>Smart Classrooms</h3>
+                        <div class="infra-body">
+                            <p>Classrooms equipped with interactive whiteboards, projectors, and audio-visual aids.</p>
+                            <p>Technology-enhanced lessons improve engagement and understanding of complex concepts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievements-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Academic Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h3>Board Examination Excellence</h3>
+                        <p>Consistently high pass rates with numerous students securing top positions in district and state merit lists.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>Science & Innovation</h3>
+                        <p>Students regularly win awards at district and state-level science exhibitions and Olympiads.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>Commerce & Business Acumen</h3>
+                        <p>Our commerce stream students excel in business quizzes, mock stock competitions, and entrepreneurship programs.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>Language & Literature</h3>
+                        <p>Proficiency in languages celebrated through debate victories, essay competitions, and literary festivals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Academic Impact in Numbers</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Board Exam Pass Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">45+</span>
+                        <span class="stat-label">Distinctions & Merit Positions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Subject Options Offered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Students Participating in Co-curriculars</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="outcomes-section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Student Outcomes & Higher Education</h2>
+                <p style="max-width: 800px; margin: 0 auto 2rem; color: #555;">Our academic preparation opens doors to prestigious institutions and diverse career paths:</p>
+                <div class="outcome-item">
+                    <h3>Higher Education</h3>
+                    <p>Graduates gain admission to top engineering, medical, commerce, and arts colleges across India.</p>
+                </div>
+                <div class="outcome-item">
+                    <h3>Competitive Exams</h3>
+                    <p>Strong foundation for NEET, JEE, CLAT, UPSC, and other national-level competitive examinations.</p>
+                </div>
+                <div class="outcome-item">
+                    <h3>Skill Development</h3>
+                    <p>Students acquire critical thinking, problem-solving, and communication skills essential for 21st-century careers.</p>
+                </div>
+                <div class="outcome-item">
+                    <h3>Holistic Growth</h3>
+                    <p>Beyond academics, students develop leadership, teamwork, and social responsibility through various activities.</p>
                 </div>
             </div>
         </section>
@@ -223,9 +410,9 @@
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=61558420693080&mibextid=wwXIfr" aria-label="Facebook"><span>📘</span></a>
-                        <a href="https://x.com/PMSHRIMANDAL?t=rzGpncQQVpx3LMw0sSNQ-Q&s=09" aria-label="Twitter"><span>🐦</span></a>
-                        <a href="https://www.instagram.com/pmshrimandal?igsh=Ymk3cjlqdHlhamY1&utm_source=qr" aria-label="Instagram"><span>📷</span></a>
+                        <a href="https://www.facebook.com/profile.php?id=61558420693080&mibextid=wwXIfr" aria-label="Facebook"><img src="/facebook.png" alt="Facebook" /></a>
+                        <a href="https://x.com/PMSHRIMANDAL?t=rzGpncQQVpx3LMw0sSNQ-Q&s=09" aria-label="Twitter"><img src="/twitter.png" alt="Twitter" /></a>
+                        <a href="https://www.instagram.com/pmshrimandal?igsh=Ymk3cjlqdHlhamY1&utm_source=qr" aria-label="Instagram"><img src="/instagram.png" alt="Instagram" /></a>
                     </div>
                 </div>
             </div>

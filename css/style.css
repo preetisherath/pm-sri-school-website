@@ -457,3 +457,96 @@ footer {
     transform: scale(1);
     transition: all 0.5s ease;
 }
+
+/* Facilities Section Styles */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.facility-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.facility-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.facility-content {
+    flex: 1;
+}
+
+.facility-content h3 {
+    color: #1e3a8a;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.facility-content p {
+    color: #5f6368;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Safety Features Styles */
+.safety-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.safety-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #f8fafc;
+    padding: 1.25rem;
+    border-radius: 10px;
+    border-left: 4px solid #1e3a8a;
+    transition: all 0.3s ease;
+}
+
+.safety-item:hover {
+    background: #eff6ff;
+    transform: translateX(5px);
+}
+
+.safety-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.safety-content {
+    flex: 1;
+}
+
+.safety-content h3 {
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.safety-content p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
