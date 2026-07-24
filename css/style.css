@@ -550,3 +550,104 @@ footer {
     line-height: 1.6;
     font-size: 0.9rem;
 }
+
+/* Eligibility Styles */
+.eligibility-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #64748b;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1rem;
+}
+
+.tab-btn:hover {
+    color: #334155;
+}
+
+.tab-btn.active {
+    color: #1e3a8a;
+    border-bottom-color: #1e3a8a;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.eligibility-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.eligibility-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 10px;
+    border-left: 4px solid #1e3a8a;
+}
+
+.eligibility-item h4 {
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.eligibility-item p {
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.eligibility-item ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.eligibility-item li {
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+.eligibility-item li:before {
+    content: "•";
+    color: #1e3a8a;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.eligibility-item.note {
+    background: #fffbeb;
+    border-left-color: #d97706;
+}
+
+.eligibility-item.note h4 {
+    color: #d97706;
+}
+
+.eligibility-item.note p {
+    color: #92400e;
+}

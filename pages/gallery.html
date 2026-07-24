@@ -6,6 +6,43 @@
     <title>Gallery - PM SHRI Government Senior Secondary School, Mandal, Bhilwara</title>
     <meta name="description" content="Explore the vibrant life at PM SHRI Government Senior Secondary School, Mandal, Bhilwara through photos of events, activities, and campus life in Mandal, Bhilwara, Rajasthan">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Social Media Tabs Styles */
+        .social-media-tabs {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .tab-btn.active {
+            color: #3498db;
+            border-bottom: 3px solid #3498db;
+        }
+        .tab-btn:hover:not(.active) {
+            color: #3498db;
+        }
+        .social-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -24,7 +61,6 @@
                     <li><a href="academics.html">Academics</a></li>
                     <li><a href="admissions.html">Admissions</a></li>
                     <li><a href="facilities.html">Facilities</a></li>
-                    <li><a href="news.html">News & Events</a></li>
                     <li><a href="gallery.html" class="active">Gallery</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -34,6 +70,9 @@
 
     <main>
         <section class="page-header">
+            <div class="container">
+                <h1>Gallery</h1>
+                <p>Explore the vibrant life at our school through photos</p>
             </div>
         </section>
 
@@ -45,7 +84,7 @@
         </section>
 
         <section class="gallery-filters">
-            <div class="container">
+            <div>
                 <div class="gallery-filter">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="events">Events</button>
@@ -58,7 +97,7 @@
         </section>
 
         <section class="gallery-grid">
-            <div class="container">
+            <div>
                 <div class="gallery-item events">
                     <img src="../assets/gallery1.jpg" alt="Annual Sports Day 2024">
                     <div class="gallery-overlay">
@@ -112,8 +151,8 @@
                     <div class="gallery-overlay">
                         <h3>PTM Session</h3>
                         <p>Parents and teachers discussing student progress</p>
-                    </div
-</div>
+                    </div>
+                </div>
 
                 <div class="gallery-item academics">
                     <img src="../assets/gallery8.jpg" alt="Computer Lab">
@@ -133,13 +172,15 @@
             </div>
         </section>
 
-        <section class="gallery-more">
+        <!-- Social Media Tabs Section -->
+        <section class="social-media-tabs">
             <div class="container">
-                <div class="gallery-more-content">
-                    <h2>Explore More Moments</h2>
-                    <p>Follow us on social media for regular updates and more glimpses into school life</p>
-                    <a href="https://www.instagram.com/pmshrimandal?igsh=Ymk3cjlqdHlhamY1&utm_source=qr" class="btn-primary">View Instagram Gallery</a>
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="window.open('https://www.instagram.com/pmshrimandal', '_blank')">Instagram Gallery</button>
+                    <button class="tab-btn" onclick="window.open('https://www.facebook.com/profile.php?id=61558420693080', '_blank')">Facebook Posts</button>
+                    <button class="tab-btn" onclick="window.open('https://x.com/PMSHRIMANDAL', '_blank')">Twitter/X Updates</button>
                 </div>
+                <p class="social-note">Follow us on social media for latest updates</p>
             </div>
         </section>
     </main>
@@ -159,7 +200,6 @@
                         <li><a href="academics.html">Academics</a></li>
                         <li><a href="admissions.html">Admissions</a></li>
                         <li><a href="facilities.html">Facilities</a></li>
-                        <li><a href="news.html">News & Events</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                     </ul>

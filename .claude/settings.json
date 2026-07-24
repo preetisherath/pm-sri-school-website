@@ -3,7 +3,10 @@
     "allow": [
       "Bash(mkdir -p \"c:\\\\Users\\\\rsrat\\\\.claude\\\\plans\")",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(grep -r \"News & Events\" /c/Users/rsrat/Website/folder --include=\"*.html\")",
+      "Read(//c/Users/rsrat/Website/**)"
     ],
     "additionalDirectories": [
       "c:\\Users\\rsrat\\.claude\\plans"
