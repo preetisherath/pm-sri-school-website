@@ -115,7 +115,7 @@
             padding: 0.8rem 1rem;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
-            font-size: 1rem;
+            font-age: 1rem;
             transition: border-color 0.3s;
         }
         .form-group input:focus,
@@ -180,6 +180,7 @@
             text-align: center;
             margin-bottom: 1.5rem;
             color: #2c3e50;
+            font-weight: 600;
         }
         .faq-item {
             margin-bottom: 1.5rem;
@@ -238,7 +239,7 @@
         }
         @media (max-width: 768px) {
             .contact-hero h1 {
-                font-size: 2rem;
+                font-size: 2.0rem;
             }
             .info-grid, .form-grid {
                 grid-template-columns: 1fr;
@@ -262,7 +263,7 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="academics.html">Academics</a></li>
                     <li><a href="admissions.html">Admissions</a></li>
-                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="facilities.html">Facilities</a></li
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="contact.html" class="active">Contact Us</a></li>
                 </ul>
@@ -439,7 +440,7 @@
                     <p>Address: Mandal, Bhilwara, Rajasthan - 311403</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Follow Us</h4>
+                    <h4>Follow Us</h4
                     <div class="social-icons">
                         <a href="https://www.facebook.com/profile.php?id=61558420693080&mibextid=wwXIfr" aria-label="Facebook"><img src="/facebook.png" alt="Facebook" /></a>
                         <a href="https://x.com/PMSHRIMANDAL?t=rzGpncQQVpx3LMw0sSNQ-Q&s=09" aria-label="Twitter"><img src="/twitter.png" alt="Twitter" /></a>
@@ -454,42 +455,195 @@
     </footer>
 
     <script src="../js/script.js"></script>
+
+    <!-- Chatbot Icon -->
+    <button class="chat-icon" id="chatIcon" aria-label="Open chat">
+        🤖
+    </button>
+
+    <!-- Chat Panel -->
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-panel-header">
+            <h3>PM SHRI School Helper</h3>
+            <button class="chat-close-btn" id="chatCloseBtn" aria-label="Close chat">&times;</button>
+        </div>
+
+        <div class="chat-panel-messages" id="chatMessages">
+            <div class="chat-welcome">
+                <h2>Hello! 👋</h2>
+                <p>I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!</p>
+                <div class="chat-suggestions">
+                    <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
+                    <div class="chat-suggestion" onclick="askQuestion('What streams are offered?')">Academics</div>
+                    <div class="chat-suggestion" onclick="askQuestion('What facilities are available?')">Facilities</div>
+                    <div class="chat-suggestion" onclick="askQuestion('What are the school timings?')">Timings</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-panel-input">
+            <input type="text" id="userInput" placeholder="Ask me anything about the school..." autocomplete="off">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Chatbot JavaScript -->
     <script>
-        // Form submission handling
+        // Knowledge base from our school website
+        const knowledgeBase = {
+            admissions: {
+                keywords: ['admission', 'apply', 'enroll', 'registration', 'form', 'procedure', 'process', 'eligibility', 'requirement', 'documents', 'entrance test'],
+                responses: [
+                    "Admission procedures vary by grade level. You can obtain application forms from our website or school office (9:00 AM - 4:00 PM on working days). The process involves: 1) Obtaining application form, 2) Filling it accurately with required documents, 3) Submitting before deadline, 4) Appealing for entrance test and student-parent interaction, 5) Checking results and completing admission formalities if selected.",
+                    "For admission inquiries, please contact our admissions office at +91 9352599991 (9:00 AM - 5:00 PM) or email ghss_mandal@rediffmail.com. Required documents typically include mark sheets, birth certificate, transfer certificate, character certificate, photographs, and Aadhaar card copy."
+                ]
+            },
+            academics: {
+                keywords: ['academic', 'study', 'class', 'subject', 'stream', 'syllabus', 'curriculum', 'exam', 'result', 'grade', 'standard'],
+                responses: [
+                    "We offer three streams at the senior secondary level: Science (Physics, Chemistry, Biology/Mathematics), Commerce (Accountancy, Business Studies, Economics), and Arts/Humanities (History, Geography, Political Science, Sociology, Psychology, Economics). Students can choose based on their interests and Class 10 performance.",
+                    "Our school maintains a 98% pass rate with 50+ dedicated faculty members. We focus on academic excellence while promoting holistic development through sports, arts, and community service. We have smart classrooms, modern laboratories, and a well-stocked library to support learning."
+                ]
+            },
+            facilities: {
+                keywords: ['facility', 'facilities', 'infrastructure', 'lab', 'laboratory', 'library', 'sports', 'playground', 'classroom', 'transport', 'bus'],
+                responses: [
+                    "Our school boasts state-of-the-art infrastructure including smart classrooms, modern science and computer laboratories, a well-stocked library, extensive playgrounds, and dedicated spaces for arts and music. We provide excellent sports facilities for athletics, football, cricket, kho-kho and more, with over 30 sports and clubs available.",
+                    "Transportation facilities are available with bus services covering various routes in Mandal and surrounding areas. For specific route information, timings, and fees, please contact the school office."
+                ]
+            },
+            timings: {
+                keywords: ['time', 'timing', 'schedule', 'hour', 'open', 'close', 'when', 'office hours'],
+                responses: [
+                    "School timings are from 8:00 AM to 2:00 PM for all grade levels. Office hours are Monday-Friday: 8:00 AM - 4:00 PM, Saturday: 9:00 AM - 1:00 PM (for inquiries only), and Sunday & Public Holidays: Closed.",
+                    "The academic day runs from 8:00 AM to 2:00 PM with appropriate breaks. Administrative offices operate during the hours mentioned above for admissions, inquiries, and other official work."
+                ]
+            },
+            contact: {
+                keywords: ['contact', 'phone', 'email', 'address', 'location', 'reach', 'call', 'message'],
+                responses: [
+                    "You can reach us at: Phone: +91 9352599991, Email: ghss_mandal@rediffmail.com, Address: Mandal, Bhilwara, Rajasthan - 311403, India. Our office hours are Monday-Friday: 8:00 AM - 4:00 PM, Saturday: 9:00 AM - 1:00 PM (inquiries only).",
+                    "For admissions inquiries specifically, contact: +91 9352599991 (9:00 AM - 5:00 PM) or ghss_mandal@rediffmail.com. We're also active on social media: Facebook, Twitter/X, and Instagram (@pmshrimandal)."
+                ]
+            },
+            vision: {
+                keywords: ['vision', 'mission', 'goal', 'aim', 'objective', 'purpose'],
+                responses: [
+                    "Our vision is to empower every student with knowledge, skills, and values to become responsible global citizens and leaders of tomorrow. Our mission is to provide quality education that fosters intellectual growth, creativity, and character development in a nurturing and inclusive environment.",
+                    "We strive for excellence in academics while promoting holistic development through sports, arts, and community service. Our core values are Excellence, Integrity, Respect, Innovation, and Service."
+                ]
+            },
+            achievements: {
+                keywords: ['achievement', 'award', 'recognition', 'accomplishment', 'success', 'award', 'prize'],
+                responses: [
+                    "Our school has achieved excellence in multiple areas: Academic excellence (consistent top performers in board examinations), Sports championships (district and state level wins in athletics, football, cricket, kho-kho), Cultural triumphs (regional and national level competitions in arts, music, dance), and Community service (social welfare initiatives, environmental campaigns, rural outreach programs).",
+                    "We take pride in our 98% pass rate and the holistic development of our 1000+ students through our comprehensive educational approach."
+                ]
+            },
+            values: {
+                keywords: ['value', 'principle', 'ethic', 'moral', 'character', 'discipline'],
+                responses: [
+                    "Our core values are Excellence (striving for highest standards), Integrity (upholding honesty and ethics), Respect (valuing diversity and dignity), Innovation (embracing creativity and progressive thinking), and Service (committing to positive societal contribution). These values guide our educational approach and student development programs.",
+                    "We believe in nurturing not just academic excellence but also character building, preparing students to become responsible global citizens who contribute positively to society."
+                ]
+            }
+        };
+
+        // Default responses for unrecognized queries
+        const defaultResponses = [
+            "I'm here to help you with information about PM SHRI Government Senior Secondary School, Mandal, Bhilwara. You can ask me about admissions, academics, facilities, timings, contact information, vision, achievements, or values.",
+            "I specialize in providing information about our school. Try asking about admission procedures, academic streams, school facilities, timings, or how to contact us.",
+            "For specific information about our school's programs, facilities, or admission process, please feel free to ask! I'm here to help you get the information you need."
+        ];
+
+        // DOM elements
+        let chatIcon, chatPanel, chatMessages, userInput, sendButton, chatCloseBtn;
+
+        // Initialize chat when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contactForm');
-            const formResponse = document.getElementById('formResponse');
+            chatIcon = document.getElementById('chatIcon');
+            chatPanel = document.getElementById('chatPanel');
+            chatMessages = document.getElementById('chatMessages');
+            userInput = document.getElementById('userInput');
+            sendButton = document.querySelector('.chat-panel-input button');
+            chatCloseBtn = document.getElementById('chatCloseBtn');
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+            initChat();
 
-                // Simple validation
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const subject = document.getElementById('subject').value.trim();
-                const message = document.getElementById('message').value.trim();
-                const inquiryType = document.getElementById('inquiry-type').value;
-
-                if (!name || !email || !subject || !message || !inquiryType) {
-                    showMessage('Please fill in all required fields.', 'error');
-                    return;
+            // Event listeners
+            chatIcon.addEventListener('click', toggleChatPanel);
+            chatCloseBtn.addEventListener('click', closeChatPanel);
+            sendButton.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
                 }
-
-                // Simulate sending (in a real app, you'd send to a server)
-                showMessage('Thank you for your message! We will get back to you soon.', 'success');
-                form.reset();
             });
 
-            function showMessage(message, type) {
-                formResponse.innerHTML = `<div class="form-message ${type}">${message}</div>`;
-                formResponse.style.display = 'block';
-
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formResponse.style.display = 'none';
-                }, 5000);
-            }
+            // Close chat when clicking outside (optional)
+            document.addEventListener('click', function(e) {
+                if (chatPanel && !chatPanel.contains(e.target) && !chatIcon.contains(e.target) && chatPanel.classList.contains('active')) {
+                    closeChatPanel();
+                }
+            });
         });
-    </script>
-</body>
-</html>
+
+        // Initialize chat interface
+        function initChat() {
+            // Add welcome message if not already present
+            if (!chatMessages.querySelector('.chat-welcome')) {
+                addMessage("Hello! 👋 I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
+
+                // Add suggestion chips
+                const suggestionsDiv = document.createElement('div');
+                suggestionsDiv.className = 'chat-suggestions';
+                suggestionsDiv.innerHTML = `
+                    <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
+                    <div class="chat-suggestion" onclick="askQuestion('What streams are offered?')">Academics</div>
+                    <div class="chat-suggestion" onclick="askQuestion('What facilities are available?')">Facilities</div>
+                    <div class="chat-suggestion" onclick="askQuestion('What are the school timings?')">Timings</div>
+                `;
+                chatMessages.appendChild(suggestionsDiv);
+            }
+
+            // Scroll to bottom
+            scrollToBottom();
+        }
+
+        // Toggle chat panel visibility
+        function toggleChatPanel() {
+            if (chatPanel.classList.contains('active')) {
+                closeChatPanel();
+            } else {
+                openChatPanel();
+            }
+        }
+
+        // Open chat panel
+        function openChatPanel() {
+            chatPanel.classList.add('active');
+            chatIcon.style.display = 'none'; // Hide icon when panel is open
+            userInput.focus(); // Focus input when opening
+        }
+
+        // Close chat panel
+        function closeChatPanel() {
+            chatPanel.classList.remove('active');
+            chatIcon.style.display = 'flex'; // Show icon when panel is closed
+        }
+
+        // Send message when button clicked
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                addMessage(message, 'user');
+                userInput.value = '';
+                setTimeout(() => {
+                    botResponse(message);
+                }, 500);
+            }
+        }
+
+        // Add message to chat
+        function addMessage(content, sender) {
+        // ... (truncated)

@@ -3,168 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PM SHRI Government Senior Secondary School, Mandal, Bhilwara - Mandal, Bhilwara</title>
-    <meta name="description" content="PM SHRI Government Senior Secondary School, Mandal, Bhilwara - Providing quality education in Mandal, Bhilwara, Rajasthan">
-    <meta name="keywords" content="PM SHRI Government Senior Secondary School, Mandal, Bhilwara, Mandal, Bhilwara, Rajasthan, school education">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>PM SHRI School Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .chat-header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            clear: both;
+        }
+
+        .message.user {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .message.bot {
+            margin-right: auto;
+        }
+
+        .message-bubble {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 18px;
+            position: relative;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.bot .message-bubble {
+            background: white;
+            border: 1px solid #e9ecef;
+            color: #333;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .message.user .message-time {
+            text-align: left;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+        }
+
+        .chat-input button {
+            margin-left: 10px;
+            padding: 0 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #667eea;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+
+        .welcome-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .welcome-message h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .suggestion {
+            background: #e3f2fd;
+            color: #1976d2;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion:hover {
+            background: #bbdefb;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .chat-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .chat-header h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo" style="display:flex; align-items:center; gap:14px; flex-wrap:nowrap;">
-                <img src="assets/logo.png" alt="PM SHRI Government Senior Secondary School, Mandal, Bhilwara Logo" style="height:52px; width:auto; flex-shrink:0;">
-                <h1 style="margin:0; font-weight:700; font-size:clamp(15px, 2.4vw, 24px); line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">PM SHRI Government Senior Secondary School, Mandal, Bhilwara</h1>
-            </div>
-            <nav>
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <span class="hamburger"></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/academics.html">Academics</a></li>
-                    <li><a href="pages/admissions.html">Admissions</a></li>
-                    <li><a href="pages/facilities.html">Facilities</a></li>
-                    <li><a href="pages/gallery.html">Gallery</a></li>
-                    <li><a href="pages/contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h2>Empowering Students for a Bright Future</h2>
-                <p>Providing quality education with modern facilities and experienced faculty</p>
-                <a href="pages/admissions.html" class="btn-primary">Apply Now</a>
-                <a href="pages/about.html" class="btn-secondary">Learn More</a>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <h3>Why Choose Our School?</h3>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h4>Academic Excellence</h4>
-                        <p>Comprehensive curriculum designed for student success</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Modern Facilities</h4>
-                        <p>State-of-the-art labs, library, and sports facilities</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Experienced Faculty</h4>
-                        <p>Dedicated teachers committed to student growth</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Holistic Development</h4>
-                        <p>Focus on academics, sports, arts, and character building</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="news-events">
-            <div class="container">
-                <h3>Latest News & Events</h3>
-                <div class="news-grid">
-                    <div class="news-card">
-                        <h4>Annual Sports Day 2024</h4>
-                        <p>January 15, 2024</p>
-                        <a href="pages/news.html">Read More →</a>
-                    </div>
-                    <div class="news-card">
-                        <h4>Science Exhibition</h4>
-                        <p>February 3, 2024</p>
-                        <a href="pages/news.html">Read More →</a>
-                    </div>
-                    <div class="news-card">
-                        <h4>Admissions Open for 2024-25</h4>
-                        <p>March 1, 2024</p>
-                        <a href="pages/admissions.html">Learn More →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>PM SHRI Government Senior Secondary School, Mandal, Bhilwara</h4>
-                    <p>Mandal, Bhilwara, Rajasthan, India</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="pages/about.html">About Us</a></li>
-                        <li><a href="pages/academics.html">Academics</a></li>
-                        <li><a href="pages/admissions.html">Admissions</a></li>
-                        <li><a href="pages/contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>Phone: +91 9352599991</p>
-                    <p>Email: ghss_mandal@rediffmail.com</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=61558420693080&mibextid=wwXIfr" aria-label="Facebook"><img src="assets/facebook.png" alt="Facebook" style="width:36px; height:36px; border-radius:50%;" /></a>
-                        <a href="https://x.com/PMSHRIMANDAL?t=rzGpncQQVpx3LMw0sSNQ-Q&s=09" aria-label="Twitter"><img src="assets/twitter.png" alt="Twitter" style="width:36px; height:36px; border-radius:50%;" /></a>
-                        <a href="https://www.instagram.com/pmshrimandal?igsh=Ymk3cjlqdHlhamY1&utm_source=qr" aria-label="Instagram"><img src="assets/instagram.png" alt="Instagram" style="width:36px; height:36px; border-radius:50%;" /></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 PM SHRI Government Senior Secondary School, Mandal, Bhilwara. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/script.js"></script>
-
-    <!-- Chatbot Icon -->
-    <button class="chat-icon" id="chatIcon" aria-label="Open chat">
-        🤖
-    </button>
-
-    <!-- Chat Panel -->
-    <div class="chat-panel" id="chatPanel">
-        <div class="chat-panel-header">
-            <h3>PM SHRI School Helper</h3>
-            <button class="chat-close-btn" id="chatCloseBtn" aria-label="Close chat">&times;</button>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>PM SHRI School Helper</h1>
+            <p>Your AI assistant for school information</p>
         </div>
 
-        <div class="chat-panel-messages" id="chatMessages">
-            <div class="chat-welcome">
+        <div class="chat-messages" id="chatMessages">
+            <div class="welcome-message">
                 <h2>Hello! 👋</h2>
                 <p>I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!</p>
-                <div class="chat-suggestions">
-                    <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
-                    <div class="chat-suggestion" onclick="askQuestion('What streams are offered?')">Academics</div>
-                    <div class="chat-suggestion" onclick="askQuestion('What facilities are available?')">Facilities</div>
-                    <div class="chat-suggestion" onclick="askQuestion('What are the school timings?')">Timings</div>
+                <div class="suggestions">
+                    <div class="suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
+                    <div class="suggestion" onclick="askQuestion('What streams are offered?')">Academics</div>
+                    <div class="suggestion" onclick="askQuestion('What facilities are available?')">Facilities</div>
+                    <div class="suggestion" onclick="askQuestion('What are the school timings?')">Timings</div>
                 </div>
             </div>
         </div>
 
-        <div class="chat-panel-input">
+        <div class="chat-input">
             <input type="text" id="userInput" placeholder="Ask me anything about the school..." autocomplete="off">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
-    <!-- Chatbot JavaScript -->
     <script>
         // Knowledge base from our school website
         const knowledgeBase = {
@@ -234,79 +315,30 @@
         ];
 
         // DOM elements
-        let chatIcon, chatPanel, chatMessages, userInput, sendButton, chatCloseBtn;
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.querySelector('.chat-input button');
 
-        // Initialize chat when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            chatIcon = document.getElementById('chatIcon');
-            chatPanel = document.getElementById('chatPanel');
-            chatMessages = document.getElementById('chatMessages');
-            userInput = document.getElementById('userInput');
-            sendButton = document.querySelector('.chat-panel-input button');
-            chatCloseBtn = document.getElementById('chatCloseBtn');
-
-            initChat();
-
-            // Event listeners
-            chatIcon.addEventListener('click', toggleChatPanel);
-            chatCloseBtn.addEventListener('click', closeChatPanel);
-            sendButton.addEventListener('click', sendMessage);
-            userInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-
-            // Close chat when clicking outside (optional)
-            document.addEventListener('click', function(e) {
-                if (chatPanel && !chatPanel.contains(e.target) && !chatIcon.contains(e.target) && chatPanel.classList.contains('active')) {
-                    closeChatPanel();
-                }
-            });
-        });
-
-        // Initialize chat interface
+        // Initialize chat
         function initChat() {
             // Add welcome message if not already present
-            if (!chatMessages.querySelector('.chat-welcome')) {
+            if (!chatMessages.querySelector('.welcome-message')) {
                 addMessage("Hello! 👋 I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
 
                 // Add suggestion chips
                 const suggestionsDiv = document.createElement('div');
-                suggestionsDiv.className = 'chat-suggestions';
+                suggestionsDiv.className = 'suggestions';
                 suggestionsDiv.innerHTML = `
-                    <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
-                    <div class="chat-suggestion" onclick="askQuestion('What streams are offered?')">Academics</div>
-                    <div class="chat-suggestion" onclick="askQuestion('What facilities are available?')">Facilities</div>
-                    <div class="chat-suggestion" onclick="askQuestion('What are the school timings?')">Timings</div>
+                    <div class="suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
+                    <div class="suggestion" onclick="askQuestion('What streams are offered?')">Academics</div>
+                    <div class="suggestion" onclick="askQuestion('What facilities are available?')">Facilities</div>
+                    <div class="suggestion" onclick="askQuestion('What are the school timings?')">Timings</div>
                 `;
                 chatMessages.appendChild(suggestionsDiv);
             }
 
             // Scroll to bottom
             scrollToBottom();
-        }
-
-        // Toggle chat panel visibility
-        function toggleChatPanel() {
-            if (chatPanel.classList.contains('active')) {
-                closeChatPanel();
-            } else {
-                openChatPanel();
-            }
-        }
-
-        // Open chat panel
-        function openChatPanel() {
-            chatPanel.classList.add('active');
-            chatIcon.style.display = 'none'; // Hide icon when panel is open
-            userInput.focus(); // Focus input when opening
-        }
-
-        // Close chat panel
-        function closeChatPanel() {
-            chatPanel.classList.remove('active');
-            chatIcon.style.display = 'flex'; // Show icon when panel is closed
         }
 
         // Send message when button clicked
@@ -321,17 +353,24 @@
             }
         }
 
+        // Send message when Enter key pressed
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
         // Add message to chat
         function addMessage(content, sender) {
             const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${sender}`;
+            messageDiv.className = `message ${sender}`;
 
             const bubbleDiv = document.createElement('div');
-            bubbleDiv.className = 'chat-message-bubble';
+            bubbleDiv.className = 'message-bubble';
             bubbleDiv.textContent = content;
 
             const timeDiv = document.createElement('div');
-            timeDiv.className = 'chat-message-time';
+            timeDiv.className = 'message-time';
             timeDiv.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
             messageDiv.appendChild(bubbleDiv);
@@ -352,13 +391,13 @@
                 // Process the message and get response
                 const response = getResponse(userMessage.toLowerCase());
                 addMessage(response, 'bot');
-            }, 800 + Math.random() * 700); // Random delay between 0.8-1.5 seconds
+            }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
         }
 
         // Show typing indicator
         function showTypingIndicator() {
             const typingDiv = document.createElement('div');
-            typingDiv.className = 'chat-message bot typing-indicator';
+            typingDiv.className = 'message bot typing-indicator';
             typingDiv.innerHTML = '<span></span><span></span><span></span>';
             typingDiv.id = 'typingIndicator';
             chatMessages.appendChild(typingDiv);
@@ -400,10 +439,11 @@
 
         // Scroll to bottom of chat
         function scrollToBottom() {
-            if (chatMessages) {
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
+
+        // Initialize chat when page loads
+        document.addEventListener('DOMContentLoaded', initChat);
     </script>
 </body>
 </html>
