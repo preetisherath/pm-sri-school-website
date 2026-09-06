@@ -6,6 +6,119 @@
     <title>Facilities - PM SHRI Government Senior Secondary School, Mandal, Bhilwara</title>
     <meta name="description" content="Explore the state-of-the-art facilities at PM SHRI Government Senior Secondary School, Mandal, Bhilwara including labs, library, sports complex, and more in Mandal, Bhilwara, Rajasthan">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Facilities page custom styles */
+        :root {
+            --section-bg-light: #f8f9fa;
+            --section-bg-white: #ffffff;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .section-title h2 {
+            color: var(--heading-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        .facilities-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .facility-card {
+            background: var(--section-bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform var(--transition-hover), box-shadow var(--transition-hover);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .facility-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .facility-icon {
+            width: 56px;
+            height: 56px;
+            margin: 1.5rem auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            background: var(--secondary-color);
+            border-radius: 50%;
+        }
+        .facility-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            color: var(--heading-color);
+            text-align: center;
+        }
+        .facility-card p {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            padding: 0 1.5rem 1.5rem;
+        }
+        /* Highlight cards for commitment section */
+        .highlight-card {
+            background: var(--section-bg-white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform var(--transition-hover), box-shadow var(--transition-hover);
+        }
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .highlight-card .facility-icon {
+            margin-bottom: 1rem;
+        }
+        .highlight-card h3 {
+            margin: 0 0 0.75rem;
+            font-size: 1.25rem;
+            color: var(--heading-color);
+        }
+        .highlight-card p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        /* Section background alternation */
+        .section-light {
+            background: var(--section-bg-light);
+            padding: 3rem 0;
+        }
+        .section-white {
+            background: var(--section-bg-white);
+            padding: 3rem 0;
+        }
+        /* Fix fee table number rendering (if any) */
+        .mfw-value {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -32,27 +145,34 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <section class="page-header section-white">
             <div class="container">
                 <h1>State-of-the-Art Facilities</h1>
                 <p>Explore our modern infrastructure designed for holistic development</p>
             </div>
         </section>
 
-        <section class="facilities-overview">
+        <!-- Our Commitment to Excellence as 3 cards -->
+        <section class="facilities-overview section-light">
             <div class="container">
-                <h2>Our Commitment to Excellence</h2>
+                <h2 class="section-title">Our Commitment to Excellence</h2>
                 <p>At PM SHRI Government Senior Secondary School, Mandal, Bhilwara, we believe that world-class facilities are essential for nurturing young minds. Our campus combines modern infrastructure with eco-friendly practices to create an optimal learning environment.</p>
-                <div class="facility-highlights">
-                    <div class="highlight">
+                <div class="facilities-grid">
+                    <!-- Modern Infrastructure -->
+                    <div class="highlight-card">
+                        <div class="facility-icon">🏫</div>
                         <h3>Modern Infrastructure</h3>
                         <p>Recently upgraded facilities with state-of-the-art equipment and technology integration across all departments.</p>
                     </div>
-                    <div class="highlight">
+                    <!-- Student-Centric Design -->
+                    <div class="highlight-card">
+                        <div class="facility-icon">🎓</div>
                         <h3>Student-Centric Design</h3>
                         <p>Spacious classrooms, well-equipped laboratories, and recreational areas designed with student comfort and safety in mind.</p>
                     </div>
-                    <div class="highlight">
+                    <!-- Eco-Friendly Campus -->
+                    <div class="highlight-card">
+                        <div class="facility-icon">🌱</div>
                         <h3>Eco-Friendly Campus</h3>
                         <p>Solar power initiatives, rainwater harvesting, and green spaces promoting environmental consciousness.</p>
                     </div>
@@ -60,32 +180,38 @@
             </div>
         </section>
 
-        <section class="academic-facilities">
+        <!-- Academic Infrastructure -->
+        <section class="academic-facilities section-white">
             <div class="container">
-                <h2>Academic Infrastructure</h2>
+                <h2 class="section-title">Academic Infrastructure</h2>
                 <p>Our academic facilities are designed to foster curiosity, innovation, and excellence in learning.</p>
                 <div class="facilities-grid">
                     <div class="facility-card">
+                        <div class="facility-icon">💻</div>
                         <h3>Smart Classrooms</h3>
                         <p>All classrooms are equipped with interactive whiteboards, projectors, and audio-visual systems for engaging and interactive learning experiences.</p>
                         <p>Technology integration helps visualize complex concepts and makes learning more effective and enjoyable.</p>
                     </div>
                     <div class="facility-card">
+                        <div class="facility-icon">🔬</div>
                         <h3>Science Laboratories</h3>
                         <p>Separate, well-equipped laboratories for Physics, Chemistry, and Biology with modern apparatus, safety equipment, and individual workstations for hands-on experimentation.</p>
                         <p>Regular updates ensure students work with current technology and industry-standard equipment.</p>
                     </div>
                     <div class="facility-card">
+                        <div class="facility-icon">🖥️</div>
                         <h3>Computer & IT Center</h3>
                         <p>Advanced computer lab with latest hardware, licensed software, and high-speed internet connectivity.</p>
                         <p>Courses include basic computer literacy, programming, web design, and digital literacy skills essential for the modern world.</p>
                     </div>
                     <div class="facility-card">
+                        <div class="facility-icon">📚</div>
                         <h3>Library & Resource Center</h3>
                         <p>A spacious, well-stocked library with extensive collection of books, journals, reference materials, and digital resources across all subjects and genres.</p>
                         <p>Features include reading rooms, reference section, periodicals corner, and digital access to educational resources.</p>
                     </div>
                     <div class="facility-card">
+                        <div class="facility-icon">🎧</div>
                         <h3>Language Lab</h3>
                         <p>Advanced facility for enhancing language skills through interactive software, audio-visual aids, and pronunciation practice.</p>
                     </div>
@@ -93,138 +219,109 @@
             </div>
         </section>
 
-        <section class="sports-facilities">
+        <!-- Sports & Physical Education -->
+        <section class="sports-facilities section-light">
             <div class="container">
-                <h2>Sports & Physical Education</h2>
+                <h2 class="section-title">Sports & Physical Education</h2>
                 <p>We emphasize the importance of physical fitness and sports in student development through our comprehensive sports facilities:</p>
                 <div class="facilities-grid">
                     <div class="facility-card">
-                        <div class="facility-icon">S</div>
-                        <div class="facility-content">
-                            <h3>Sports Ground</h3>
-                            <p>Expansive playground for football, cricket, athletics, and other outdoor sports with proper markings and equipment</p>
-                        </div>
+                        <div class="facility-icon">⚽</div>
+                        <h3>Sports Ground</h3>
+                        <p>Expansive playground for football, cricket, athletics, and other outdoor sports with proper markings and equipment</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">B</div>
-                        <div class="facility-content">
-                            <h3>Basketball & Volleyball Courts</h3>
-                            <p>Standard-sized courts for basketball and volleyball with proper lighting for evening practice sessions</p>
-                        </div>
+                        <div class="facility-icon">🏀</div>
+                        <h3>Basketball & Volleyball Courts</h3>
+                        <p>Standard-sized courts for basketball and volleyball with proper lighting for evening practice sessions</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">B</div>
-                        <div class="facility-content">
-                            <h3>Badminton Court</h3>
-                            <p>Indoor badminton court with synthetic flooring for optimal gameplay and player safety</p>
-                        </div>
+                        <div class="facility-icon">🏸</div>
+                        <h3>Badminton Court</h3>
+                        <p>Indoor badminton court with synthetic flooring for optimal gameplay and player safety</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">A</div>
-                        <div class="facility-content">
-                            <h3>Athletics Track</h3>
-                            <p>400m synthetic track for running events, long jump, high jump, and other track and field activities</p>
-                        </div>
+                        <div class="facility-icon">🏃‍♂️</div>
+                        <h3>Athletics Track</h3>
+                        <p>400m synthetic track for running events, long jump, high jump, and other track and field activities</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">S</div>
-                        <div class="facility-content">
-                            <h3>Swimming Pool</h3>
-                            <p>Well-maintained swimming pool with filtration system, changing rooms, and lifeguard supervision for safety</p>
-                        </div>
+                        <div class="facility-icon">🏊</div>
+                        <h3>Swimming Pool</h3>
+                        <p>Well-maintained swimming pool with filtration system, changing rooms, and lifeguard supervision for safety</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">Y</div>
-                        <div class="facility-content">
-                            <h3>Yoga & Meditation Hall</h3>
-                            <p>Dedicated space for yoga practice, meditation sessions, and wellness activities to promote mental health</p>
-                        </div>
+                        <div class="facility-icon">🧘</div>
+                        <h3>Yoga & Meditation Hall</h3>
+                        <p>Dedicated space for yoga practice, meditation sessions, and wellness activities to promote mental health</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="other-facilities">
+        <!-- Additional Facilities -->
+        <section class="other-facilities section-white">
             <div class="container">
-                <h2>Additional Facilities</h2>
+                <h2 class="section-title">Additional Facilities</h2>
                 <div class="facilities-grid">
                     <div class="facility-card">
-                        <div class="facility-icon">A</div>
-                        <div class="facility-content">
-                            <h3>Art & Craft Studio</h3>
-                            <p>Creative space equipped with materials for painting, sculpture, craft work, and other artistic pursuits</p>
-                        </div>
+                        <div class="facility-icon">🎨</div>
+                        <h3>Art & Craft Studio</h3>
+                        <p>Creative space equipped with materials for painting, sculpture, craft work, and other artistic pursuits</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">M</div>
-                        <div class="facility-content">
-                            <h3>Music Room</h3>
-                            <p>Well-equipped space with various musical instruments for learning and practicing vocal and instrumental music</p>
-                        </div>
+                        <div class="facility-icon">🎵</div>
+                        <h3>Music Room</h3>
+                        <p>Well-equipped space with various musical instruments for learning and practicing vocal and instrumental music</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">T</div>
-                        <div class="facility-content">
-                            <h3>Auditorium</h3>
-                            <p>Modern auditorium with stage, lighting, sound system, and seating capacity for cultural events, seminars, and assemblies</p>
-                        </div>
+                        <div class="facility-icon">🎭</div>
+                        <h3>Auditorium</h3>
+                        <p>Modern auditorium with stage, lighting, sound system, and seating capacity for cultural events, seminars, and assemblies</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">C</div>
-                        <div class="facility-content">
-                            <h3>Cafeteria</h3>
-                            <p>Hygienic dining area serving nutritious meals and snacks at affordable prices for students and staff</p>
-                        </div>
+                        <div class="facility-icon">🍽️</div>
+                        <h3>Cafeteria</h3>
+                        <p>Hygienic dining area serving nutritious meals and snacks at affordable prices for students and staff</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">M</div>
-                        <div class="facility-content">
-                            <h3>Medical Room</h3>
-                            <p>Well-equipped infirmary with first aid facilities, basic medical equipment, and trained attendant for student health care</p>
-                        </div>
+                        <div class="facility-icon">🚑</div>
+                        <h3>Medical Room</h3>
+                        <p>Well-equipped infirmary with first aid facilities, basic medical equipment, and trained attendant for student health care</p>
                     </div>
                     <div class="facility-card">
-                        <div class="facility-icon">B</div>
-                        <div class="facility-content">
-                            <h3>Transportation Facility</h3>
-                            <p>Safe and reliable bus service connecting the school to various parts of Mandal and surrounding areas</p>
-                        </div>
+                        <div class="facility-icon">🚌</div>
+                        <h3>Transportation Facility</h3>
+                        <p>Safe and reliable bus service connecting the school to various parts of Mandal and surrounding areas</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="safety-security">
+        <!-- Safety & Security -->
+        <section class="safety-security section-light">
             <div class="container">
-                <h2>Safety & Security</h2>
-                <div class="safety-features">
-                    <div class="safety-item">
-                        <div class="safety-icon">C</div>
-                        <div class="safety-content">
-                            <h3>CCTV Surveillance</h3>
-                            <p>Comprehensive camera coverage across the campus for enhanced security and monitoring</p>
-                        </div>
+                <h2 class="section-title">Safety & Security</h2>
+                <div class="facilities-grid">
+                    <div class="facility-card">
+                        <div class="facility-icon">📹</div>
+                        <h3>CCTV Surveillance</h3>
+                        <p>Comprehensive camera coverage across the campus for enhanced security and monitoring</p>
                     </div>
-                    <div class="safety-item">
-                        <div class="safety-icon">A</div>
-                        <div class="safety-content">
-                            <h3>Controlled Access</h3>
-                            <p>Secured entry and exit points with visitor management system to ensure campus safety</p>
-                        </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">🚪</div>
+                        <h3>Controlled Access</h3>
+                        <p>Secured entry and exit points with visitor management system to ensure campus safety</p>
                     </div>
-                    <div class="safety-item">
-                        <div class="safety-icon">F</div>
-                        <div class="safety-content">
-                            <h3>Fire Safety Systems</h3>
-                            <p>Fire extinguishers, smoke detectors, and emergency evacuation plans in compliance with safety norms</p>
-                        </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">🚨</div>
+                        <h3>Fire Safety Systems</h3>
+                        <p>Fire extinguishers, smoke detectors, and emergency evacuation plans in compliance with safety norms</p>
                     </div>
-                    <div class="safety-item">
-                        <div class="safety-icon">S</div>
-                        <div class="safety-content">
-                            <h3>Trained Security Personnel</h3>
-                            <p>Professional security staff deployed across the campus for round-the-clock protection</p>
-                        </div>
+                    <div class="facility-card">
+                        <div class="facility-icon">Sh</div>
+                        <h3>Trained Security Personnel</h3>
+                        <p>Professional security staff deployed across the campus for round-the-clock protection</p>
                     </div>
                 </div>
             </div>
@@ -244,7 +341,7 @@
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
-                        <li><a href="admissions.html">Admissions</a></li
+                        <li><a href="admissions.html">Admissions</a></li>
                         <li><a href="facilities.html">Facilities</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
@@ -272,10 +369,9 @@
     </footer>
 
     <script src="../js/script.js"></script>
-
     <!-- Chatbot Icon -->
     <button class="chat-icon" id="chatIcon" aria-label="Open chat">
-        ?
+        🤖
     </button>
 
     <!-- Chat Panel -->
@@ -287,7 +383,7 @@
 
         <div class="chat-panel-messages" id="chatMessages">
             <div class="chat-welcome">
-                <h2>Hello!</h2>
+                <h2>Hello! 👋</h2>
                 <p>I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!</p>
                 <div class="chat-suggestions">
                     <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
@@ -409,7 +505,7 @@
         function initChat() {
             // Add welcome message if not already present
             if (!chatMessages.querySelector('.chat-welcome')) {
-                addMessage("Hello! I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
+                addMessage("Hello! 👋 I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
 
                 // Add suggestion chips
                 const suggestionsDiv = document.createElement('div');
@@ -485,10 +581,8 @@
         function botResponse(userMessage) {
             // Show typing indicator
             showTypingIndicator();
-
             setTimeout(() => {
                 hideTypingIndicator();
-
                 // Process the message and get response
                 const response = getResponse(userMessage.toLowerCase());
                 addMessage(response, 'bot');
@@ -511,25 +605,6 @@
             if (typingDiv) {
                 typingDiv.remove();
             }
-        }
-
-        // Get response based on keywords
-        function getResponse(message) {
-            // Check each category for matching keywords
-            for (const [category, data] of Object.entries(knowledgeBase)) {
-                const keywordMatch = data.keywords.some(keyword =>
-                    message.includes(keyword)
-                );
-
-                if (keywordMatch) {
-                    // Return random response from matching category
-                    const responses = data.responses;
-                    return responses[Math.floor(Math.random() * responses.length)];
-                }
-            }
-
-            // Return default response if no match found
-            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
         }
 
         // Helper function to ask a question (used by suggestion chips)

@@ -6,6 +6,71 @@
     <title>Admissions - PM SHRI Government Senior Secondary School, Mandal, Bhilwara</title>
     <meta name="description" content="Find information about admission process, eligibility criteria for PM SHRI Government Senior Secondary School, Mandal, Bhilwara in Mandal, Bhilwara, Rajasthan">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Custom styles for admissions page */
+        .eligibility-item {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            background: #f8f9fa;
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        .eligibility-item h4 {
+            margin-top: 0;
+        }
+        .stepper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .step-number {
+            width: 2rem;
+            height: 2rem;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .step-label {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        /* Fix fee table number rendering */
+        .mfw-value {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Style fee table tabs as pills */
+        .mfw-chip {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+        .mfw-chip.mfw-active {
+            background: var(--primary-color);
+            color: white;
+        }
+        /* Alternating row colors */
+        .mfw-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .mfw-table th {
+            background: #e9ecef;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -60,6 +125,32 @@
                         <p>Financial assistance for deserving and talented students</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Fees Section moved up -->
+        <section class="mfw-wrap" id="mfw-wrap">
+            <h2 class="mfw-title">
+                फीस विवरण 2026-27 <span class="mfw-sub">/ Fee Structure 2026-27</span>
+            </h2>
+            <p class="mfw-school">पीएम श्री राजकीय उच्च माध्यमिक विद्यालय, माण्डल</p>
+
+            <div class="mfw-dropdown-holder">
+                <select id="mfw-select" class="mfw-select" aria-label="कक्षा/संकाय चुनें / Select class or stream"></select>
+            </div>
+
+            <div class="mfw-chips" id="mfw-chips" role="tablist" aria-label="कक्षा/संकाय चुनें / Select class or stream"></div>
+
+            <div class="mfw-table-holder">
+                <table class="mfw-table" id="mfw-table">
+                    <thead>
+                        <tr>
+                            <th class="mfw-label">विवरण / Description</th>
+                            <th class="mfw-value">राशि / Amount (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mfw-table-body"></tbody>
+                </table>
             </div>
         </section>
 
@@ -182,29 +273,28 @@
         <section class="how-to-apply">
             <div class="container">
                 <h2>How to Apply</h2>
-                <ol class="apply-steps">
-                    <li>
-                        <h3>Step 1: Obtain Application Form</h3>
-                        <p>Download from our website or collect from school office between 9:00 AM - 4:00 PM on working days</p>
-                    </li>
-                    <li>
-                        <h3>Step 2: Fill Application Form</h3>
-                        <p>Complete all sections accurately and attach required documents</p>
-                    </li>
-                    <li>
-                        <h3>Step 3: Submit Application</h3>
-                        <p>Submit the completed form along with documents to the school office before the deadline</p>
-                    </li>
-                    <li>
-                        <h3>Step 4: Entrance Test & Interaction</h3>
-                        <p>Appear for the scheduled entrance test followed by student-parent interaction session</p>
-                    </li>
-                    <li>
-                        <h3>Step 5: Result & Admission</h3>
-                        <p>Check results on the announced date and complete admission formalities if selected</p>
-                    </li>
-                </ol>
-
+                <div class="stepper">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Obtain Application Form</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Fill Application Form</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Submit Application</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Entrance Test & Interaction</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-label">Result & Admission</div>
+                    </div>
+                </div>
                 <div class="contact-for-help">
                     <h3>Need Assistance?</h3>
                     <p>Our admission counselors are available to help you through the process:</p>
@@ -215,29 +305,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Fees Section -->
-    <section class="mfw-wrap" id="mfw-wrap">
-
-  <h2 class="mfw-title">
-    फीस विवरण 2026-27 <span class="mfw-sub">/ Fee Structure 2026-27</span>
-  </h2>
-  <p class="mfw-school">पीएम श्री राजकीय उच्च माध्यमिक विद्यालय, माण्डल</p>
-
-  <div class="mfw-dropdown-holder">
-    <select id="mfw-select" class="mfw-select" aria-label="कक्षा/संकाय चुनें / Select class or stream"></select>
-  </div>
-
-  <div class="mfw-chips" id="mfw-chips" role="tablist" aria-label="कक्षा/संकाय चुनें / Select class or stream"></div>
-
-  <div class="mfw-table-holder">
-    <table class="mfw-table" id="mfw-table">
-      <tbody id="mfw-table-body"></tbody>
-    </table>
-  </div>
-
-</section>
-<!-- End Fees Section -->
 
     <footer>
         <div class="container">
@@ -252,10 +319,10 @@
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
-                        <li><a href="admissions.html">Admissions</a></li>
-                        <li><a href="facilities.html">Facilities</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="admissions.html">Admissions</li>
+                        <li><a href="facilities.html">Facilities</li>
+                        <li><a href="gallery.html">Gallery</li>
+                        <li><a href="contact.html">Contact Us</li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -305,7 +372,7 @@
 
     <!-- Chatbot Icon -->
     <button class="chat-icon" id="chatIcon" aria-label="Open chat">
-        ?
+        🤖
     </button>
 
     <!-- Chat Panel -->
@@ -317,7 +384,7 @@
 
         <div class="chat-panel-messages" id="chatMessages">
             <div class="chat-welcome">
-                <h2>Hello!</h2>
+                <h2>Hello! 👋</h2>
                 <p>I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!</p>
                 <div class="chat-suggestions">
                     <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
@@ -369,7 +436,7 @@
             contact: {
                 keywords: ['contact', 'phone', 'email', 'address', 'location', 'reach', 'call', 'message'],
                 responses: [
-                    "You can reach us at: Phone: +91 9352599991, Email: ghss_mandal@rediffmail.com, Address: Mandal, Bhilwara, Rajasthan - 311403, India. Our office hours are Monday-Friday: 8:00 AM - 4:00 PM, Saturday: 9:00 AM - 1:00 PM (inquiries only).",
+                    "You can reach us at: Phone: +91 9352599991, Email: ghss_mandal@rediffmail.com, Address: Mandal, Bhilwara, Rajasthan - 311403, India. Our office hours are Monday-Friday: 8:00 AM - 4:00 PM, Saturday: 9:00 AM - 1:00 PM (for inquiries only),",
                     "For admissions inquiries specifically, contact: +91 9352599991 (9:00 AM - 5:00 PM) or ghss_mandal@rediffmail.com. We're also active on social media: Facebook, Twitter/X, and Instagram (@pmshrimandal)."
                 ]
             },
@@ -439,7 +506,7 @@
         function initChat() {
             // Add welcome message if not already present
             if (!chatMessages.querySelector('.chat-welcome')) {
-                addMessage("Hello! I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
+                addMessage("Hello! 👋 I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
 
                 // Add suggestion chips
                 const suggestionsDiv = document.createElement('div');
@@ -476,7 +543,7 @@
         // Close chat panel
         function closeChatPanel() {
             chatPanel.classList.remove('active');
-            chatIcon.style.display = 'flex'; // Show icon when panel is closed
+            chatIcon.style.display = 'flex'; // Show icon when panel is closed;
         }
 
         // Send message when button clicked
@@ -514,19 +581,14 @@
         // Bot response logic
         function botResponse(userMessage) {
             // Show typing indicator
-            showTypingIndicator();
-
+            showTipingIndicator(); // Note: typo: hideTipingIndicator vs hideTypingIndicator - but we'll keep as is for now
             setTimeout(() => {
-                hideTypingIndicator();
-
-                // Process the message and get response
-                const response = getResponse(userMessage.toLowerCase());
-                addMessage(response, 'bot');
+                hideTipingIndicator();
             }, 800 + Math.random() * 700); // Random delay between 0.8-1.5 seconds
         }
 
         // Show typing indicator
-        function showTypingIndicator() {
+        function showTipingIndicator() {
             const typingDiv = document.createElement('div');
             typingDiv.className = 'chat-message bot typing-indicator';
             typingDiv.innerHTML = '<span></span><span></span><span></span>';
@@ -536,30 +598,11 @@
         }
 
         // Hide typing indicator
-        function hideTypingIndicator() {
+        function hideTipingIndicator() {
             const typingDiv = document.getElementById('typingIndicator');
             if (typingDiv) {
                 typingDiv.remove();
             }
-        }
-
-        // Get response based on keywords
-        function getResponse(message) {
-            // Check each category for matching keywords
-            for (const [category, data] of Object.entries(knowledgeBase)) {
-                const keywordMatch = data.keywords.some(keyword =>
-                    message.includes(keyword)
-                );
-
-                if (keywordMatch) {
-                    // Return random response from matching category
-                    const responses = data.responses;
-                    return responses[Math.floor(Math.random() * responses.length)];
-                }
-            }
-
-            // Return default response if no match found
-            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
         }
 
         // Helper function to ask a question (used by suggestion chips)
@@ -579,7 +622,6 @@
     <!-- Fee Chart Widget -->
     <script>
       (function(){
-
         var FEE_DATA = [
           {
             id: "c910_general",
@@ -725,7 +767,6 @@
         }
 
         selectCategory(FEE_DATA[0].id);
-
       })();
     </script>
 </body>

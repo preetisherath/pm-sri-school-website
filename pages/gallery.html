@@ -42,6 +42,72 @@
             color: #666;
             font-style: italic;
         }
+    /* Gallery Filter Styles */
+        .gallery-filters .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .gallery-filters .filter-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all var(--transition-hover);
+        }
+        .gallery-filters .filter-btn:hover,
+        .gallery-filters .filter-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        /* Gallery Grid Styles */
+        .gallery-grid-inner {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .gallery-item {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform var(--transition-hover), box-shadow var(--transition-hover);
+            display: flex;
+            flex-direction: column;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gallery-overlay {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .gallery-overlay h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            color: var(--heading-color);
+        }
+        .gallery-overlay p {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
@@ -84,7 +150,7 @@
         </section>
 
         <section class="gallery-filters">
-            <div>
+            <div class="container">
                 <div class="gallery-filter">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="events">Events</button>
@@ -97,55 +163,54 @@
         </section>
 
         <section class="gallery-grid">
-            <div>
-                <div class="gallery-item events">
-                    <img src="../assets/gallery1.jpg" alt="Annual Sports Day 2024">
-                    <div class="gallery-overlay">
-                        <h3>Sports Day 2024</h3>
-                        <p>Students showcasing their athletic talents</p>
+            <div class="container">
+                <div class="gallery-grid-inner">
+                    <div class="gallery-item events">
+                        <img src="../assets/gallery1.jpg" alt="Annual Sports Day 2024">
+                        <div class="gallery-overlay">
+                            <h3>Sports Day 2024</h3>
+                            <p>Students showcasing their athletic talents</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item cultural">
-                    <img src="../assets/gallery2.jpg" alt="Republic Day Celebration">
-                    <div class="gallery-overlay">
-                        <h3>Republic Day</h3>
-                        <p>Patriotic celebrations with flag hoisting</p>
+                    <div class="gallery-item cultural">
+                        <img src="../assets/gallery2.jpg" alt="Republic Day Celebration">
+                        <div class="gallery-overlay">
+                            <h3>Republic Day</h3>
+                            <p>Patriotic celebrations with flag hoisting</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item academics">
-                    <img src="../assets/gallery3.jpg" alt="Science Exhibition">
-                    <div class="gallery-overlay">
-                        <h3>Science Exhibition</h3>
-                        <p>Innovative projects by young scientists</p>
-                    </                </div>
-                </div>
-                <div class="gallery-item sports">
-                    <img src="../assets/gallery4.jpg" alt="Basketball Match">
-                    <div class="gallery-overlay">
-                        <h3>Basketball Tournament</h3>
-                        <p>Our team in action during district championship</p>
+                    <div class="gallery-item academics">
+                        <img src="../assets/gallery3.jpg" alt="Science Exhibition">
+                        <div class="gallery-overlay">
+                            <h3>Science Exhibition</h3>
+                            <p>Innovative projects by young scientists</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item facilities">
-                    <img src="../assets/gallery5.jpg" alt="Science Laboratory">
-                    <div class="gallery-overlay">
-                        <h3>Science Lab</h3>
-                        <p>Students conducting experiments in modern lab</p>
+                    <div class="gallery-item sports">
+                        <img src="../assets/gallery4.jpg" alt="Basketball Match">
+                        <div class="gallery-overlay">
+                            <h3>Basketball Tournament</h3>
+                            <p>Our team in action during district championship</p>
+                        </div>
                     </div>
-                </div>
 
-                <<p>Students learning programming and digital skills</p>
+                    <div class="gallery-item facilities">
+                        <img src="../assets/gallery5.jpg" alt="Science Laboratory">
+                        <div class="gallery-overlay">
+                            <h3>Science Lab</h3>
+                            <p>Students conducting experiments in modern lab</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="gallery-item sports">
-                    <img src="../assets/gallery9.jpg" alt="Yoga Session">
-                    <div class="gallery-overlay">
-                        <h3>Yoga & Wellness</h3>
-                        <p>Students practicing yoga for mental and physical well-being</p>
+                    <div class="gallery-item sports">
+                        <img src="../assets/gallery9.jpg" alt="Yoga Session">
+                        <div class="gallery-overlay">
+                            <h3>Yoga & Wellness</h3>
+                            <p>Students practicing yoga for mental and physical well-being</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -208,7 +273,7 @@
 
     <!-- Chatbot Icon -->
     <button class="chat-icon" id="chatIcon" aria-label="Open chat">
-        ?
+        🤖
     </button>
 
     <!-- Chat Panel -->
@@ -220,7 +285,7 @@
 
         <div class="chat-panel-messages" id="chatMessages">
             <div class="chat-welcome">
-                <h2>Hello!</h2>
+                <h2>Hello! 👋</h2>
                 <p>I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!</p>
                 <div class="chat-suggestions">
                     <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
@@ -342,7 +407,7 @@
         function initChat() {
             // Add welcome message if not already present
             if (!chatMessages.querySelector('.chat-welcome')) {
-                addMessage("Hello! I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
+                addMessage("Hello! 👋 I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
 
                 // Add suggestion chips
                 const suggestionsDiv = document.createElement('div');

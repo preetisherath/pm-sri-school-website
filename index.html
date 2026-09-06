@@ -135,7 +135,7 @@
 
     <!-- Chatbot Icon -->
     <button class="chat-icon" id="chatIcon" aria-label="Open chat">
-        ?
+        🤖
     </button>
 
     <!-- Chat Panel -->
@@ -147,7 +147,7 @@
 
         <div class="chat-panel-messages" id="chatMessages">
             <div class="chat-welcome">
-                <h2>Hello!</h2>
+                <h2>Hello! 👋</h2>
                 <p>I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!</p>
                 <div class="chat-suggestions">
                     <div class="chat-suggestion" onclick="askQuestion('What are the admission procedures?')">Admissions</div>
@@ -269,7 +269,7 @@
         function initChat() {
             // Add welcome message if not already present
             if (!chatMessages.querySelector('.chat-welcome')) {
-                addMessage("Hello! I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
+                addMessage("Hello! 👋 I'm your helpful assistant for PM SHRI Government Senior Secondary School, Mandal, Bhilwara. Ask me about admissions, academics, facilities, or any other school-related questions!", 'bot');
 
                 // Add suggestion chips
                 const suggestionsDiv = document.createElement('div');
